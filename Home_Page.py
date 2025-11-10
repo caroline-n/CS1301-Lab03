@@ -14,9 +14,9 @@ st.subheader("Caroline Tran, Carrick Stopford")
 baseUrl = "https://api.thecatapi.com/v1/"
 endpoint = baseUrl + "images/search"
 
-headers = {
-    "x-api-key": "live_F5fS1iIYr4ORocJCtCbnREOgOn9zMvbC6Hv2aCvdzuJFBA8Q9rC7L8rA1FzBBcmO"
-}
+key = st.secrets["key"]
+
+headers = {"x-api-key": key}
 
 response = requests.get(endpoint, headers=headers)
 data = response.json()
