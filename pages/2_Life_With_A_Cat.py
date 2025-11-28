@@ -36,6 +36,7 @@ breedNames = [] #list of breed names
 for bName, bId in breeds:
     breedNames.append(bName)
 
+age = st.slider("Select the age of the cat:", 0, 20, 3)
 breed = st.selectbox("Select a cat breed:", breedNames, index=None) #user input
 
 
@@ -57,10 +58,11 @@ if breed:
     #///DONE image
 
     prompt = f"1. Breed: {breed}\n"
+    prompt += f"2. Age: {age}\n"
     description = dBreed[0]["breeds"][0]["description"]
-    prompt += f"2. Short description: {description}\n"
+    prompt += f"3. Short description: {description}\n"
     temperament = dBreed[0]["breeds"][0]["temperament"]
-    prompt += f"3. Temperament: {temperament}\n" #take info and put them in the base prompt
+    prompt += f"4. Temperament: {temperament}\n" #take info and put them in the base prompt
     
     prompt += "Based on the above description and further research, "
     added = " Give your response as soon as possible."
@@ -72,8 +74,7 @@ if breed:
     tab1, tab2, tab3 = st.tabs(["📝 Preparation Plan & Tips", "⏱️ Day in the Life", "🖼️ Cat Gallery"])
     with tab1:
         st.write(plan.text)
-    #container1 = st.container(border=True)
-    #container1.write(response.text)
+        
     with tab2:
         st.write(dayitlife.text)
 
