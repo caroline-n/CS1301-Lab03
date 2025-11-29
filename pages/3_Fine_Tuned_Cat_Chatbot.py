@@ -1,6 +1,6 @@
 
 import streamlit as st
-from google import genai
+import google.generativeai as genai
 import requests as req
 
 #site captions
