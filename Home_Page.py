@@ -15,7 +15,8 @@ baseUrl = "https://api.thecatapi.com/v1/"
 endpoint = baseUrl + "images/search"
 
 key = st.secrets["key"]
-
+#headers = {"x-api-key": "live_F5fS1iIYr4ORocJCtCbnREOgOn9zMvbC6Hv2aCvdzuJFBA8Q9rC7L8rA1FzBBcmO"}
+#we left the api key in case a TA needs to run the app locally
 headers = {"x-api-key": key}
 
 response = requests.get(endpoint, headers=headers)
