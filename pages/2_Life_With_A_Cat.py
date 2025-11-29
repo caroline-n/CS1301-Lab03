@@ -13,7 +13,7 @@ model = genai.GenerativeModel("gemini-2.5-flash") #this is the free model of goo
 #st.write(response.text) #dont forget to print your response!
 
 st.header("🐈‍⬛ Life with a Cat!")
-
+st.write("You may be thinking about adopting a cat. Or perhaps you have decided to get one. Find out how to prepare for a life with a cat!")
 
 baseUrl = "https://api.thecatapi.com/v1/"
 endpoint = baseUrl + "breeds/"
@@ -30,8 +30,6 @@ except:
     st.error("Could not load cat data. Please check API key or connection.")
     st.stop()
 #---end of grabbing cat api data---
-
-st.write("You may be thinking about adopting a cat. Or perhaps you have decided to get one. Find out how to prepare for a life with a cat!")
 
 breeds = [] #list of tuple (name, id)
 for breedDict in data:
@@ -83,7 +81,7 @@ def generating():
                 st.image(photoBr) #display a random image featuring the breed
                 #///DONE 1 image, repeating num number of times according to the user input
     except:
-        st.info("I couldn't generative a valid response. Please try again shortly.")
+        st.error("I couldn't generative a valid response. Please try again shortly.")
 
 
 if breed:
