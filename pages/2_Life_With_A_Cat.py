@@ -4,7 +4,6 @@ import google.generativeai as genai
 import os
 
 genaikey = st.secrets["genaikey"]
-
 genai.configure(api_key=genaikey)
 model = genai.GenerativeModel("gemini-2.5-flash") #this is the free model of google gemini
 #response = model.generate_content("Write a poem about how learning web development is fun!") #enter your prompt here!
@@ -26,8 +25,8 @@ headers = {"x-api-key": key}
 try:
     response = requests.get(endpoint, headers=headers)
     data = response.json()
-except:
-    st.error("Could not load cat data. Please check API key or connection.")
+except Exception as error:
+    st.error(f"Could not load cat data due to an error: {error}. Please check API key or connection.")
     st.stop()
 #---end of grabbing cat api data---
 
@@ -81,8 +80,8 @@ def generating():
                 photoBr = dataBreed[0]["url"]
                 st.image(photoBr) #display a random image featuring the breed
                 #///DONE 1 image, repeating num number of times according to the user input
-    except:
-        st.error("I couldn't generative a valid response. Please try again shortly.")
+    except Exception as err:
+        st.error(f"I couldn't generative a valid response due to an error: {err}. Please try again shortly.")
 
 
 if breed:
