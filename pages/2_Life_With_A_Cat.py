@@ -22,9 +22,14 @@ genaikey = st.secrets["genaikey"]
 headers = {"x-api-key": genaikey}
 #headers = {"x-api-key": "live_F5fS1iIYr4ORocJCtCbnREOgOn9zMvbC6Hv2aCvdzuJFBA8Q9rC7L8rA1FzBBcmO"}
 
-response = requests.get(endpoint, headers=headers)
-
-data = response.json()
+#safely grabs data preventing crashing
+try:
+    response = requests.get(endpoint, headers=headers)
+    data = response.json()
+except:
+    st.error("Could not load cat data. Please check API key or connection.")
+    st.stop()
+#---end of grabbing cat api data---
 
 st.write("You may be thinking about adopting a cat. Or perhaps you have decided to get one. Find out how to prepare for a life with a cat!")
 
@@ -38,6 +43,47 @@ for bName, bId in breeds:
 
 age = st.slider("Select the age of the cat:", 0, 20, 3)
 breed = st.selectbox("Select a cat breed:", breedNames, index=None) #user input
+
+
+#/// create a function to handle errors while generating responses
+def generating(): 
+    prompt = f"1. Breed: {breed}\n"
+    prompt += f"2. Age: {age}\n"
+    description = dBreed[0]["breeds"][0]["description"]
+    prompt += f"3. Short description: {description}\n"
+    temperament = dBreed[0]["breeds"][0]["temperament"]
+    prompt += f"4. Temperament: {temperament}\n" #take info and put them in the base prompt
+    
+    prompt += "Based on the above description and further research, "
+    added = " Give your response as soon as possible."
+    prompt1 = prompt + "make me a short and engaging plan and tips (with icons) to prepare to live with a cat specifically of this breed." + added #preparation plan and tips
+    prompt2 = prompt + "make me a concise, engaging, and realistic a day in the life (with icons) of a cat owner of this breed." + added #day in the life
+
+    try:
+        plan = model.generate_content(prompt1) #enter your prompt here!
+        dayitlife= model.generate_content(prompt2)
+
+        tab1, tab2, tab3 = st.tabs(["📝 Preparation Plan & Tips", "⏱️ Day in the Life", "🖼️ Cat Gallery"])
+        with tab1:
+            st.write(plan.text)
+        
+        with tab2:
+            st.write(dayitlife.text)
+
+        with tab3:
+            num = st.number_input("How many images would you like?", 1, 5, 3) #determines how many images
+
+            for n in range(num):
+                endBreed = f"{baseUrl}images/search?breed_ids={breedId}&limit={num}"
+
+                resBreed = requests.get(endpBreed, headers=headers)
+                dataBreed = resBreed.json()
+                
+                photoBr = dataBreed[0]["url"]
+                st.image(photoBr) #display a random image featuring the breed
+                #///DONE 1 image, repeating num number of times according to the user input
+    except:
+        st.info("I couldn't generative a valid response. Please try again shortly.")
 
 
 if breed:
@@ -57,45 +103,10 @@ if breed:
     st.image(imgBr) #display a random image featuring the breed
     #///DONE image
 
-    prompt = f"1. Breed: {breed}\n"
-    prompt += f"2. Age: {age}\n"
-    description = dBreed[0]["breeds"][0]["description"]
-    prompt += f"3. Short description: {description}\n"
-    temperament = dBreed[0]["breeds"][0]["temperament"]
-    prompt += f"4. Temperament: {temperament}\n" #take info and put them in the base prompt
+    generating()
+
     
-    prompt += "Based on the above description and further research, "
-    added = " Give your response as soon as possible."
-    prompt1 = prompt + "make me a short and engaging plan and tips (with icons) to prepare to live with a cat specifically of this breed." + added #preparation plan and tips
-    prompt2 = prompt + "make me a concise, engaging, and realistic a day in the life (with icons) of a cat owner of this breed." + added #day in the life
-    plan = model.generate_content(prompt1) #enter your prompt here!
-    dayitlife= model.generate_content(prompt2)
 
-    tab1, tab2, tab3 = st.tabs(["📝 Preparation Plan & Tips", "⏱️ Day in the Life", "🖼️ Cat Gallery"])
-    with tab1:
-        st.write(plan.text)
-        
-    with tab2:
-        st.write(dayitlife.text)
-
-    with tab3:
-        num = st.number_input("How many images would you like?", 1, 5, 3) #determines how many images
-        endBreed = f"{baseUrl}images/search?breed_ids={breedId}&limit={num}"
-
-        resBreed = requests.get(endpBreed, headers=headers)
-        dataBreed = resBreed.json()
-
-        for n in range(num):
-            endBreed = f"{baseUrl}images/search?breed_ids={breedId}&limit={num}"
-
-            resBreed = requests.get(endpBreed, headers=headers)
-            dataBreed = resBreed.json()
-            
-            photoBr = dataBreed[0]["url"]
-            st.image(photoBr) #display a random image featuring the breed
-            #///DONE 1 image, repeating num number of times according to the user input
-        
-            
 
 
 
