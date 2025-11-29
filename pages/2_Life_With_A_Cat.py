@@ -3,7 +3,9 @@ import requests
 import google.generativeai as genai
 import os
 
-genai.configure(api_key=geminikey)
+genaikey = st.secrets["genaikey"]
+
+genai.configure(api_key=genaikey)
 model = genai.GenerativeModel("gemini-2.5-flash") #this is the free model of google gemini
 #response = model.generate_content("Write a poem about how learning web development is fun!") #enter your prompt here!
 #st.write(response.text) #dont forget to print your response!
@@ -15,8 +17,8 @@ st.write("You may be thinking about adopting a cat. Or perhaps you have decided 
 baseUrl = "https://api.thecatapi.com/v1/"
 endpoint = baseUrl + "breeds/"
 
-genaikey = st.secrets["genaikey"]
-headers = {"x-api-key": genaikey}
+key = st.secrets["key"]
+headers = {"x-api-key": key}
 #headers = {"x-api-key": "live_F5fS1iIYr4ORocJCtCbnREOgOn9zMvbC6Hv2aCvdzuJFBA8Q9rC7L8rA1FzBBcmO"}
 #we left the api key in case a TA needs to run the app locally
 
