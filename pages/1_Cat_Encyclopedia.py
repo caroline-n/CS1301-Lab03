@@ -102,9 +102,9 @@ if breed:
         st.stop()
 
     for cat in data:
-    if cat["id"] == breedId:
-        breed_info = cat
-        break
+        if cat["id"] == breedId:
+            breed_info = cat
+            break
 
     weightBr = breed_info["weight"]
     # weightBr = dBreed[0]["breeds"][0]["weight"] # a dict with imperial and metric as keys
