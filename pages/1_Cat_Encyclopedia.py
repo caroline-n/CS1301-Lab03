@@ -31,15 +31,19 @@ for cat in data:
 
 #compiles list of just lifespans
 for a_range in corr_lives:
-    mid = a_range.index("-")
-    
-    num_one = a_range[:mid]
-    num_one = num_one.strip()
-    
-    num_two = a_range[mid+1:]
-    num_two = num_two.strip()
+    if "-" in a_range:
+        mid = a_range.index("-")
+        
+        num_one = a_range[:mid]
+        num_one = num_one.strip()
+        
+        num_two = a_range[mid+1:]
+        num_two = num_two.strip()
+        
+        avg = (int(num_two) + int(num_one)) // 2
+    else:
+        avg = int(a_range.strip())
 
-    avg = (int(num_two) + int(num_one)) // 2
     corr_lives_fixed.append(avg)
 
 #makes the data readable to streamlit   
