@@ -107,7 +107,7 @@ if breed:
             break
 
     #container1.write(f"🐈 **DEBUG BREED**: {breed_info}")
-    st.write(breed_info.keys())
+    #st.write(breed_info.keys())
     weightBr = breed_info["weight"]
     # weightBr = dBreed[0]["breeds"][0]["weight"] # a dict with imperial and metric as keys
 
@@ -132,8 +132,7 @@ if breed:
     container1.write(f"🧠 **Temperament**: {temperament}.")
     #///DONE temperament
 
-
-
+    """
     with st.expander(f"🐾 Characteristics of {breed}", expanded=True):
         c1, c2 = st.columns(2) #// 2 columns for binary and range characteristics
 
@@ -299,7 +298,7 @@ if breed:
                         st.write(label)
                     with c_value:
                         st.write(f"{val} / 5")
-                
+     """           
 st.divider() #/// searching tool DONE
 
 
