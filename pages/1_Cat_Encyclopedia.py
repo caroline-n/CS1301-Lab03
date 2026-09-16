@@ -100,7 +100,14 @@ if breed:
     if len(dBreed) == 0 or len(dBreed[0]["breeds"]) == 0:
         st.error("The API did not return breed information. Please try again.")
         st.stop()
-    weightBr = dBreed[0]["breeds"][0]["weight"] # a dict with imperial and metric as keys
+
+    for cat in data:
+    if cat["id"] == breedId:
+        breed_info = cat
+        break
+
+    weightBr = breed_info["weight"]
+    # weightBr = dBreed[0]["breeds"][0]["weight"] # a dict with imperial and metric as keys
 
     on = container1.toggle("Show weight in Metric", key="metric") #user input
     if on: #shows weight in METRIC
@@ -109,14 +116,17 @@ if breed:
         weight = container1.write(f"🐈 **Weight**: {weightBr['imperial']} lbs")
     #///DONE weight
 
-    origin = dBreed[0]["breeds"][0]["origin"]
+    origin = breed_info["origin"]
+    description = breed_info["description"]
+    temperament = breed_info["temperament"]
+    # origin = dBreed[0]["breeds"][0]["origin"]
     container1.write(f"🔎 **Origin**: {origin}")
 
-    description = dBreed[0]["breeds"][0]["description"]
+    # description = dBreed[0]["breeds"][0]["description"]
     container1.write(f"📝 **Description**: {description}")
     #///DONE description
 
-    temperament = dBreed[0]["breeds"][0]["temperament"]
+    # temperament = dBreed[0]["breeds"][0]["temperament"]
     container1.write(f"🧠 **Temperament**: {temperament}.")
     #///DONE temperament
 
