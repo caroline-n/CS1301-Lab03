@@ -97,6 +97,9 @@ if breed:
 
     container1 = st.container(border = True) #/// container for the breed's info
 
+    if len(dBreed) == 0 or len(dBreed[0]["breeds"]) == 0:
+        st.error("The API did not return breed information. Please try again.")
+        st.stop()
     weightBr = dBreed[0]["breeds"][0]["weight"] # a dict with imperial and metric as keys
 
     on = container1.toggle("Show weight in Metric", key="metric") #user input
