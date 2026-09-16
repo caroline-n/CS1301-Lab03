@@ -146,39 +146,39 @@ if breed:
                     else:
                         st.markdown(f" <span style='text-decoration: line-through; opacity: 0.6;'>{trait}</span>", unsafe_allow_html=True)
                 
-                indoor = dBreed[0]["breeds"][0]["indoor"]
+                indoor = breed_info["indoor"]
                 trait1 = "It is typically an indoor cat."
                 printBinary(trait1, indoor)
 
-                experimental = dBreed[0]["breeds"][0]["experimental"]
+                experimental = breed_info["experimental"]
                 trait2 = "The breed is experimental."
                 printBinary(trait2, experimental)
 
-                hairless = dBreed[0]["breeds"][0]["hairless"]
+                hairless = breed_info["hairless"]
                 trait3 = "It is hairless."
                 printBinary(trait3, hairless)
 
-                natural = dBreed[0]["breeds"][0]["natural"]
+                natural = breed_info["natural"]
                 trait4 = "It is a natural breed (not crossbred)."
                 printBinary(trait4, natural)
 
-                rare = dBreed[0]["breeds"][0]["rare"]
+                rare = breed_info["rare"]
                 trait5 = "It is considered rare."
                 printBinary(trait5, rare)
 
-                rex = dBreed[0]["breeds"][0]["rex"]
+                rex = breed_info["rex"]
                 trait6 = "It has rex-type fur."
                 printBinary(trait6, rex)
 
-                suppressed_tail = dBreed[0]["breeds"][0]["suppressed_tail"]
+                suppressed_tail = breed_info["suppressed_tail"]
                 trait7 = "It has a short or missing tail."
                 printBinary(trait7, suppressed_tail)
 
-                short_legs = dBreed[0]["breeds"][0]["short_legs"]
+                short_legs = breed_info["short_legs"]
                 trait8 = "It has short legs (like Munchkin cats)."
                 printBinary(trait8, short_legs)
 
-                hypoallergenic = dBreed[0]["breeds"][0]["hypoallergenic"]
+                hypoallergenic = breed_info["hypoallergenic"]
                 trait9 = "The breed is less likely to cause allergic reactions."
                 printBinary(trait9, hypoallergenic)
                 
