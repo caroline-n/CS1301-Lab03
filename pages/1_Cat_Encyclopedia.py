@@ -132,173 +132,173 @@ if breed:
     container1.write(f"🧠 **Temperament**: {temperament}.")
     #///DONE temperament
 
-    """
-    with st.expander(f"🐾 Characteristics of {breed}", expanded=True):
-        c1, c2 = st.columns(2) #// 2 columns for binary and range characteristics
+    # Cmd + /
+    # with st.expander(f"🐾 Characteristics of {breed}", expanded=True):
+    #     c1, c2 = st.columns(2) #// 2 columns for binary and range characteristics
 
-        with c1:
-            st.write("**BINARY**")
-            t1, t2, t3 = st.tabs(["📋 All", "✅ True", "❌ False"])
+    #     with c1:
+    #         st.write("**BINARY**")
+    #         t1, t2, t3 = st.tabs(["📋 All", "✅ True", "❌ False"])
 
-            with t1:
-                def printBinary(trait, val): #shows all characteristics
-                    if val == 1:
-                        st.markdown(f" **{trait}**", unsafe_allow_html=True)
-                    else:
-                        st.markdown(f" <span style='text-decoration: line-through; opacity: 0.6;'>{trait}</span>", unsafe_allow_html=True)
+    #         with t1:
+    #             def printBinary(trait, val): #shows all characteristics
+    #                 if val == 1:
+    #                     st.markdown(f" **{trait}**", unsafe_allow_html=True)
+    #                 else:
+    #                     st.markdown(f" <span style='text-decoration: line-through; opacity: 0.6;'>{trait}</span>", unsafe_allow_html=True)
                 
-                indoor = breed_info["indoor"]
-                trait1 = "It is typically an indoor cat."
-                printBinary(trait1, indoor)
+    #             indoor = breed_info["indoor"]
+    #             trait1 = "It is typically an indoor cat."
+    #             printBinary(trait1, indoor)
 
-                experimental = breed_info["experimental"]
-                trait2 = "The breed is experimental."
-                printBinary(trait2, experimental)
+    #             experimental = breed_info["experimental"]
+    #             trait2 = "The breed is experimental."
+    #             printBinary(trait2, experimental)
 
-                hairless = breed_info["hairless"]
-                trait3 = "It is hairless."
-                printBinary(trait3, hairless)
+    #             hairless = breed_info["hairless"]
+    #             trait3 = "It is hairless."
+    #             printBinary(trait3, hairless)
 
-                natural = breed_info["natural"]
-                trait4 = "It is a natural breed (not crossbred)."
-                printBinary(trait4, natural)
+    #             natural = breed_info["natural"]
+    #             trait4 = "It is a natural breed (not crossbred)."
+    #             printBinary(trait4, natural)
 
-                rare = breed_info["rare"]
-                trait5 = "It is considered rare."
-                printBinary(trait5, rare)
+    #             rare = breed_info["rare"]
+    #             trait5 = "It is considered rare."
+    #             printBinary(trait5, rare)
 
-                rex = breed_info["rex"]
-                trait6 = "It has rex-type fur."
-                printBinary(trait6, rex)
+    #             rex = breed_info["rex"]
+    #             trait6 = "It has rex-type fur."
+    #             printBinary(trait6, rex)
 
-                suppressed_tail = breed_info["suppressed_tail"]
-                trait7 = "It has a short or missing tail."
-                printBinary(trait7, suppressed_tail)
+    #             suppressed_tail = breed_info["suppressed_tail"]
+    #             trait7 = "It has a short or missing tail."
+    #             printBinary(trait7, suppressed_tail)
 
-                short_legs = breed_info["short_legs"]
-                trait8 = "It has short legs (like Munchkin cats)."
-                printBinary(trait8, short_legs)
+    #             short_legs = breed_info["short_legs"]
+    #             trait8 = "It has short legs (like Munchkin cats)."
+    #             printBinary(trait8, short_legs)
 
-                hypoallergenic = breed_info["hypoallergenic"]
-                trait9 = "The breed is less likely to cause allergic reactions."
-                printBinary(trait9, hypoallergenic)
+    #             hypoallergenic = breed_info["hypoallergenic"]
+    #             trait9 = "The breed is less likely to cause allergic reactions."
+    #             printBinary(trait9, hypoallergenic)
                 
-            with t2:
-                def printBinary(trait, val): #shows True/YES characteristics
-                    if val == 1:
-                        st.markdown(f" **{trait}**", unsafe_allow_html=True)
+    #         with t2:
+    #             def printBinary(trait, val): #shows True/YES characteristics
+    #                 if val == 1:
+    #                     st.markdown(f" **{trait}**", unsafe_allow_html=True)
                                     
     
-                printBinary(trait1, indoor)
-                printBinary(trait2, experimental)
-                printBinary(trait3, hairless)
-                printBinary(trait4, natural)
-                printBinary(trait5, rare)
-                printBinary(trait6, rex)
-                printBinary(trait7, suppressed_tail)
-                printBinary(trait8, short_legs)
-                printBinary(trait9, hypoallergenic)
+    #             printBinary(trait1, indoor)
+    #             printBinary(trait2, experimental)
+    #             printBinary(trait3, hairless)
+    #             printBinary(trait4, natural)
+    #             printBinary(trait5, rare)
+    #             printBinary(trait6, rex)
+    #             printBinary(trait7, suppressed_tail)
+    #             printBinary(trait8, short_legs)
+    #             printBinary(trait9, hypoallergenic)
 
-            with t3:
+    #         with t3:
                 
-                def printBinary(trait, val):#shows False/No characteristic
-                    if val == 0:
-                        st.markdown(f" <span style='text-decoration: line-through; opacity: 0.6;'>{trait}</span>", unsafe_allow_html=True)
+    #             def printBinary(trait, val):#shows False/No characteristic
+    #                 if val == 0:
+    #                     st.markdown(f" <span style='text-decoration: line-through; opacity: 0.6;'>{trait}</span>", unsafe_allow_html=True)
                 
-                printBinary(trait1, indoor)
-                printBinary(trait2, experimental)
-                printBinary(trait3, hairless)
-                printBinary(trait4, natural)
-                printBinary(trait5, rare)
-                printBinary(trait6, rex)
-                printBinary(trait7, suppressed_tail)
-                printBinary(trait8, short_legs)
-                printBinary(trait9, hypoallergenic)
+    #             printBinary(trait1, indoor)
+    #             printBinary(trait2, experimental)
+    #             printBinary(trait3, hairless)
+    #             printBinary(trait4, natural)
+    #             printBinary(trait5, rare)
+    #             printBinary(trait6, rex)
+    #             printBinary(trait7, suppressed_tail)
+    #             printBinary(trait8, short_legs)
+    #             printBinary(trait9, hypoallergenic)
 
             
-        with c2:
-            st.write("**RANGE**")
+    #     with c2:
+    #         st.write("**RANGE**")
             
-            t4, t5, t6 = st.tabs(["📖 All", "⬆️ High (3-5)", "⬇️ Low (1-2)"])
+    #         t4, t5, t6 = st.tabs(["📖 All", "⬆️ High (3-5)", "⬇️ Low (1-2)"])
 
-            with t4: #shows all range characteristics
-                traits = [
-                    ("How easily the cat adapts to change", "adaptability"),
-                    ("How affectionate the cat is", "affection_level"),
-                    ("How well it gets along with children", "child_friendly"),
-                    ("How well it gets along with dogs", "dog_friendly"),
-                    ("Amount of grooming needed", "grooming"),
-                    ("Intelligence level", "intelligence"),
-                    ("How much it sheds", "shedding_level"),
-                    ("How friendly it is with strangers", "stranger_friendly"),
-                    ("How vocal or talkative it is", "vocalisation"),
-                ]
+    #         with t4: #shows all range characteristics
+    #             traits = [
+    #                 ("How easily the cat adapts to change", "adaptability"),
+    #                 ("How affectionate the cat is", "affection_level"),
+    #                 ("How well it gets along with children", "child_friendly"),
+    #                 ("How well it gets along with dogs", "dog_friendly"),
+    #                 ("Amount of grooming needed", "grooming"),
+    #                 ("Intelligence level", "intelligence"),
+    #                 ("How much it sheds", "shedding_level"),
+    #                 ("How friendly it is with strangers", "stranger_friendly"),
+    #                 ("How vocal or talkative it is", "vocalisation"),
+    #             ]
 
-                breed = dBreed[0]["breeds"][0]
+    #             breed = dBreed[0]["breeds"][0]
 
-                c_label, c_value = st.columns([4, 1])
-                with c_label:
-                    st.write("**Characteristics**")
-                with c_value:
-                    st.write("**Value**")
+    #             c_label, c_value = st.columns([4, 1])
+    #             with c_label:
+    #                 st.write("**Characteristics**")
+    #             with c_value:
+    #                 st.write("**Value**")
 
-                for label, key in traits:
-                    val = breed[key]
+    #             for label, key in traits:
+    #                 val = breed[key]
 
-                    if val is None:
-                        continue
+    #                 if val is None:
+    #                     continue
                     
-                    with c_label:
-                        st.write(label)
-                    with c_value:
-                        st.write(f"{val} / 5")
+    #                 with c_label:
+    #                     st.write(label)
+    #                 with c_value:
+    #                     st.write(f"{val} / 5")
 
-            with t5:
-                #shows only high (3-5)
+    #         with t5:
+    #             #shows only high (3-5)
 
-                c_label, c_value = st.columns([4, 1])
-                with c_label:
-                    st.write("**Characteristics**")
-                with c_value:
-                    st.write("**Value**")
+    #             c_label, c_value = st.columns([4, 1])
+    #             with c_label:
+    #                 st.write("**Characteristics**")
+    #             with c_value:
+    #                 st.write("**Value**")
 
-                for label, key in traits:
-                    val = breed[key]
+    #             for label, key in traits:
+    #                 val = breed[key]
 
-                    if val is None:
-                        continue
+    #                 if val is None:
+    #                     continue
 
-                    if val is not None and val < 3:
-                         continue
+    #                 if val is not None and val < 3:
+    #                      continue
                     
-                    with c_label:
-                        st.write(label)
-                    with c_value:
-                        st.write(f"{val} / 5")
+    #                 with c_label:
+    #                     st.write(label)
+    #                 with c_value:
+    #                     st.write(f"{val} / 5")
 
-            with t6:
-                #shows only low (1-2)
+    #         with t6:
+    #             #shows only low (1-2)
 
-                c_label, c_value = st.columns([4, 1])
-                with c_label:
-                    st.write("**Characteristics**")
-                with c_value:
-                    st.write("**Value**")
+    #             c_label, c_value = st.columns([4, 1])
+    #             with c_label:
+    #                 st.write("**Characteristics**")
+    #             with c_value:
+    #                 st.write("**Value**")
 
-                for label, key in traits:
-                    val = breed[key]
+    #             for label, key in traits:
+    #                 val = breed[key]
 
-                    if val is None:
-                        continue
+    #                 if val is None:
+    #                     continue
                     
-                    if val is not None and val >= 3:
-                         continue
+    #                 if val is not None and val >= 3:
+    #                      continue
                     
-                    with c_label:
-                        st.write(label)
-                    with c_value:
-                        st.write(f"{val} / 5")
-     """           
+    #                 with c_label:
+    #                     st.write(label)
+    #                 with c_value:
+    #                     st.write(f"{val} / 5")
+                
 st.divider() #/// searching tool DONE
 
 
