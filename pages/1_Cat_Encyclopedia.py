@@ -106,6 +106,7 @@ if breed:
             breed_info = cat
             break
 
+    container1.write(f"🐈 **DEBUG BREED**: {breed_info}")
     weightBr = breed_info["weight"]
     # weightBr = dBreed[0]["breeds"][0]["weight"] # a dict with imperial and metric as keys
 
