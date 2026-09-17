@@ -299,44 +299,44 @@ if breed:
     #                 with c_value:
     #                     st.write(f"{val} / 5")
                 
-st.divider() #/// searching tool DONE
+# st.divider() #/// searching tool DONE
 
 
 
-st.header("💞 Find your Feline Soulmate")
+# st.header("💞 Find your Feline Soulmate")
 
-with st.form("my_form"): # a form asking for preference of cat breeds => first match
-    st.subheader("🫶 What if there's a breed perfect for you?")
+# with st.form("my_form"): # a form asking for preference of cat breeds => first match
+#     st.subheader("🫶 What if there's a breed perfect for you?")
 
-    # st.write("How much is your desire for social interaction?") #default = 5
-    # social_needs = st.slider("", 1, 5, 5, label_visibility="hidden")
+#     # st.write("How much is your desire for social interaction?") #default = 5
+#     # social_needs = st.slider("", 1, 5, 5, label_visibility="hidden")
             
-    st.write("Would you like a natural breed?") #default = Yes
-    natural = st.selectbox("", ["Yes", "No"], key=99,label_visibility="hidden")
+#     st.write("Would you like a natural breed?") #default = Yes
+#     natural = st.selectbox("", ["Yes", "No"], key=99,label_visibility="hidden")
 
-    st.write("Do you need a hypoallergenic cat?") #default = No
-    hypoallergenic = st.selectbox("", ["Yes", "No"], index=1, key=98, label_visibility="hidden")
+#     st.write("Do you need a hypoallergenic cat?") #default = No
+#     hypoallergenic = st.selectbox("", ["Yes", "No"], index=1, key=98, label_visibility="hidden")
     
-    submitted = st.form_submit_button("Submit", type="primary") #the button for submitting the form
+#     submitted = st.form_submit_button("Submit", type="primary") #the button for submitting the form
         
-    if submitted: # if the user submits the form           
-        if natural == "Yes": #yes = 1, no = 0
-            natural = 1
-        else:
-            natural = 0
-        if hypoallergenic == "Yes":
-            hypoallergenic = 1
-        else:
-            hypoallergenic = 0
-        found = False
-        for breed in data:
-            if breed["natural"] == natural:
-                if breed["hypoallergenic"] == hypoallergenic:
-                    found = True #first match found
-                    st.success(f"Lovely! You've found your feline soulmate: **{breed['name']}**. You may use our cat search tool to get more info about **{breed['name']}**.")
-                    break
-        if found == False: #no matches found
-            st.write("Unfortunately, we couldn't find a match for you...")
+#     if submitted: # if the user submits the form           
+#         if natural == "Yes": #yes = 1, no = 0
+#             natural = 1
+#         else:
+#             natural = 0
+#         if hypoallergenic == "Yes":
+#             hypoallergenic = 1
+#         else:
+#             hypoallergenic = 0
+#         found = False
+#         for breed in data:
+#             if breed["natural"] == natural:
+#                 if breed["hypoallergenic"] == hypoallergenic:
+#                     found = True #first match found
+#                     st.success(f"Lovely! You've found your feline soulmate: **{breed['name']}**. You may use our cat search tool to get more info about **{breed['name']}**.")
+#                     break
+#         if found == False: #no matches found
+#             st.write("Unfortunately, we couldn't find a match for you...")
 
             
     
