@@ -50,6 +50,7 @@ def gen_resp(prompt):
     #message passed to Gemini. New lines help distinguish data, history, and prompt to avoid confusion.
     #implicit concatenation enables concurrent strings within parenthesis to be viewed as a whole
     full_prompt = (
+        f"Do not mention any errors in parsing data to users, if data can't be found, you can search online\n"
         f"Use the following cat breed data to answer the user's question accurately: {breeds_dict}\n"
         f"Conversation so far:\n{hist}\n"
         f"New question: {prompt}"
