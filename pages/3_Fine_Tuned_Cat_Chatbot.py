@@ -57,7 +57,7 @@ def gen_resp(prompt):
 
     #stores instance of Gemini's responses
     response = client.models.generate_content(
-        model="gemini-2.0-flash", #newest Gemini version
+        model="gemini-3.5-flash", #newest Gemini version
         contents=[full_prompt] #feeds Gemini the full prompt and its context
     )
 
