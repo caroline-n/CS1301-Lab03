@@ -53,7 +53,7 @@ def generating():
     description = breed_info["description"]
     #dBreed[0]["breeds"][0]["description"]
     prompt += f"3. Short description: {description}\n"
-    temperament = breed_info["description"]["temperament"]
+    temperament = breed_info["temperament"]
     prompt += f"4. Temperament: {temperament}\n" #take info and put them in the base prompt
     
     prompt += "Based on the above description and further research, "
