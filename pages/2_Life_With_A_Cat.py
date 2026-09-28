@@ -63,13 +63,13 @@ def generating():
     try:
         plan = client.models.generate_content(
             model="gemini-3.5-flash", #newest Gemini version
-            contents=[full_prompt] #feeds Gemini the full prompt and its context
+            contents=[prompt1] #feeds Gemini the full prompt and its context
         )
 
         #model.generate_content(prompt1) #enter your prompt here!
         dayitlife = client.models.generate_content(
             model="gemini-3.5-flash", #newest Gemini version
-            contents=[full_prompt] #feeds Gemini the full prompt and its context
+            contents=[prompt2] #feeds Gemini the full prompt and its context
         )
 
         #model.generate_content(prompt2)
