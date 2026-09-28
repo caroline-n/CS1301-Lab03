@@ -10,6 +10,40 @@ model = genai.GenerativeModel("gemini-3.5-flash") #this is the free model of goo
 #response = model.generate_content("Write a poem about how learning web development is fun!") #enter your prompt here!
 #st.write(response.text) #dont forget to print your response!
 
+#------------
+st.title("Gemini Setup Diagnostic")
+
+# 1. Fetch secret from Streamlit Cloud Secrets
+secret_key = st.secrets.get("GEMINI_API_KEY", "")
+
+# 2. Display debug information without exposing the secret
+st.write("### Secrets Check")
+if secret_key:
+    # Check length and format without revealing full string
+    prefix = secret_key[:4] if len(secret_key) >= 4 else secret_key
+    st.success(f"Key loaded! Prefix: `{prefix}...` (Length: {len(secret_key)})")
+else:
+    st.error("❌ `GEMINI_API_KEY` was NOT found in `st.secrets`!")
+    st.info("Ensure you saved `GEMINI_API_KEY = 'YOUR_KEY'` under 'Secrets' in the Streamlit Cloud Dashboard.")
+    st.stop()
+
+# 3. Test API Call
+st.write("### API Test")
+if st.button("Test Gemini Connection"):
+    try:
+        # Pass key explicitly to client
+        client = genai.Client(api_key=secret_key)
+        
+        response = client.models.generate_content(
+            model="gemini-1.5-flash",
+            contents="Say 'Hello World'!"
+        )
+        st.success("✅ Success! Gemini response:")
+        st.write(response.text)
+    except Exception as e:
+        st.error(f"❌ API Call Failed: {e}")
+#-----------
+
 st.title("🐈‍⬛ Life with a Cat!")
 st.write("You may be thinking about adopting a cat. Or perhaps you have decided to get one. Find out how to prepare for a life with a cat!")
 
