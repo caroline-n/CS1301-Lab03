@@ -14,7 +14,7 @@ model = genai.GenerativeModel("gemini-3.5-flash") #this is the free model of goo
 st.title("Gemini Setup Diagnostic")
 
 # 1. Fetch secret from Streamlit Cloud Secrets
-secret_key = st.secrets.get("GEMINI_API_KEY", "")
+secret_key = st.secrets.get("genaikey", "")
 
 # 2. Display debug information without exposing the secret
 st.write("### Secrets Check")
