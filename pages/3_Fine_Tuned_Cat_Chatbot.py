@@ -7,7 +7,7 @@ import requests as req
 st.title("🤖 Fine Tuned Cat Chatbot")
 st.write("This AI is fine tuned to cat information like weight, origin, lifespan, temperament, and traits. Ask me anything about a cat breed!")
 
-API_KEY = "AQ.Ab8RN6KQ5V52rg10dSguR7IHEgVXSpBbRjn9wHi-f298vy48qw" #key for google genai
+API_KEY = "AIzaSyAb8RN6KQ5V52rg10dSguR7IHEgVXSpBbRjn9wHi-f298vy48qw" #key for google genai
 genaikey = API_KEY
 #st.secrets["genaikey"]
 #we left the api key in case a TA needs to run the app locally
