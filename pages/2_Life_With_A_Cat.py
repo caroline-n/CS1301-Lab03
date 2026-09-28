@@ -1,36 +1,30 @@
 import streamlit as st
 import requests
-import google.generativeai as genai
+#import google.generativeai as genai
+from google import genai
 import os
 
 genaikey = "AQ.Ab8RN6KQ5V52rg10dSguR7IHEgVXSpBbRjn9wHi-f298vy48qw" # in case a TA needs it
 genaikey = st.secrets["genaikey"]
-genai.configure(api_key=genaikey)
+#genai.configure(api_key=genaikey)
+client = genai.Client(api_key=genaikey)
 model = genai.GenerativeModel("gemini-3.5-flash") #this is the free model of google gemini
 #response = model.generate_content("Write a poem about how learning web development is fun!") #enter your prompt here!
 #st.write(response.text) #dont forget to print your response!
 
-#------------
-st.title("Gemini Setup Diagnostic")
-
-# 1. Fetch secret from Streamlit Cloud Secrets
-secret_key = st.secrets.get("genaikey", "")
-
-# 2. Display debug information without exposing the secret
-st.write("### Secrets Check")
-if secret_key:
-    if st.button("Test Gemini Connection"):
-        try:
-            # Old library setup
-            genai.configure(api_key=secret_key)
-            model = genai.GenerativeModel("gemini-1.5-flash")
-            
-            response = model.generate_content("Say 'Hello World'!")
-            st.success("✅ Success! Gemini response:")
-            st.write(response.text)
-        except Exception as e:
-            st.error(f"❌ API Call Failed: {e}")
-#-----------
+if st.button("Test Gemini Connection"):
+    try:
+        # Pass the key explicitly to the Client initializer
+        client = genai.Client(api_key=secret_key)
+        
+        response = client.models.generate_content(
+            model="gemini-1.5-flash",
+            contents="Say 'Hello World'!"
+        )
+        st.success("✅ Success! Gemini response:")
+        st.write(response.text)
+    except Exception as e:
+        st.error(f"❌ API Call Failed: {e}")
 
 st.title("🐈‍⬛ Life with a Cat!")
 st.write("You may be thinking about adopting a cat. Or perhaps you have decided to get one. Find out how to prepare for a life with a cat!")
