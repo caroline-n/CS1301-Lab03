@@ -8,7 +8,7 @@ genaikey = "AQ.Ab8RN6KQ5V52rg10dSguR7IHEgVXSpBbRjn9wHi-f298vy48qw" # in case a T
 genaikey = st.secrets["genaikey"]
 #genai.configure(api_key=genaikey)
 client = genai.Client(api_key=genaikey)
-model = genai.GenerativeModel("gemini-3.5-flash") #this is the free model of google gemini
+#model = genai.GenerativeModel("gemini-3.5-flash") #this is the free model of google gemini
 #response = model.generate_content("Write a poem about how learning web development is fun!") #enter your prompt here!
 #st.write(response.text) #dont forget to print your response!
 
@@ -75,8 +75,18 @@ def generating():
     prompt2 = prompt + "make me a concise, engaging, and realistic a day in the life (with icons) of a cat owner of this breed." + added #day in the life
 
     try:
-        plan = model.generate_content(prompt1) #enter your prompt here!
-        dayitlife= model.generate_content(prompt2)
+        plan = client.models.generate_content(
+            model="gemini-3.5-flash", #newest Gemini version
+            contents=[full_prompt] #feeds Gemini the full prompt and its context
+        )
+
+        #model.generate_content(prompt1) #enter your prompt here!
+        dayitlife = client.models.generate_content(
+            model="gemini-3.5-flash", #newest Gemini version
+            contents=[full_prompt] #feeds Gemini the full prompt and its context
+        )
+
+        #model.generate_content(prompt2)
 
         tab1, tab2, tab3 = st.tabs(["📝 Preparation Plan & Tips", "⏱️ Day in the Life", "🖼️ Cat Gallery"])
         with tab1:
