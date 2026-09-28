@@ -4,7 +4,7 @@ import google.generativeai as genai
 import os
 
 genaikey = "AQ.Ab8RN6KQ5V52rg10dSguR7IHEgVXSpBbRjn9wHi-f298vy48qw" # in case a TA needs it
-#genaikey = st.secrets["genaikey"]
+genaikey = st.secrets["genaikey"]
 genai.configure(api_key=genaikey)
 model = genai.GenerativeModel("gemini-3.5-flash") #this is the free model of google gemini
 #response = model.generate_content("Write a poem about how learning web development is fun!") #enter your prompt here!
