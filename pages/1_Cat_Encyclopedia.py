@@ -90,10 +90,9 @@ if breed:
     dBreed = rBreed.json()
     #//dBreed is a list containing one dict with keys
     #//such as breeds, id, url, width, and height
-    st.write(dBreed)
+    #st.write(dBreed)
 
     imgBr = dBreed[0]["url"]
-    #imgURL = baseUrl + "images/" + imgBr
     st.image(imgBr) #display a random image featuring the breed
     #///DONE image
 
