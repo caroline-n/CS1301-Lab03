@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-import google.generativeai as genai
+import google.genai as genai
 import os
 
 genaikey = "AQ.Ab8RN6KQ5V52rg10dSguR7IHEgVXSpBbRjn9wHi-f298vy48qw" # in case a TA needs it
