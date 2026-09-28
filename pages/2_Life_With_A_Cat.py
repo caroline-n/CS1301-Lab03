@@ -12,20 +12,6 @@ client = genai.Client(api_key=genaikey)
 #response = model.generate_content("Write a poem about how learning web development is fun!") #enter your prompt here!
 #st.write(response.text) #dont forget to print your response!
 
-if st.button("Test Gemini Connection"):
-    try:
-        # Pass the key explicitly to the Client initializer
-        client = genai.Client(api_key=genaikey)
-        
-        response = client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents="Say 'Hello World'!"
-        )
-        st.success("✅ Success! Gemini response:")
-        st.write(response.text)
-    except Exception as e:
-        st.error(f"❌ API Call Failed: {e}")
-
 st.title("🐈‍⬛ Life with a Cat!")
 st.write("You may be thinking about adopting a cat. Or perhaps you have decided to get one. Find out how to prepare for a life with a cat!")
 
