@@ -15,7 +15,7 @@ client = genai.Client(api_key=genaikey)
 if st.button("Test Gemini Connection"):
     try:
         # Pass the key explicitly to the Client initializer
-        client = genai.Client(api_key=secret_key)
+        client = genai.Client(api_key=genaikey)
         
         response = client.models.generate_content(
             model="gemini-1.5-flash",
