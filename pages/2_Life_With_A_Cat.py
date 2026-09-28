@@ -18,7 +18,7 @@ baseUrl = "https://api.thecatapi.com/v1/"
 endpoint = baseUrl + "breeds/"
 
 key = st.secrets["key"]
-headers = {"x-api-key": key}
+headers = {"x-api-key": "live_KhZWwsWpzMKVhMj6gxOACpxmAdYHL3v3A8Db4NhaTGkI4Kezv6UOnMQqnSqf8gvq"}
 #headers = {"x-api-key": "live_F5fS1iIYr4ORocJCtCbnREOgOn9zMvbC6Hv2aCvdzuJFBA8Q9rC7L8rA1FzBBcmO"}
 #we left the api key in case a TA needs to run the app locally
 
