@@ -50,9 +50,10 @@ breed = st.selectbox("Select a cat breed:", breedNames, index=None) #user input
 def generating(): 
     prompt = f"1. Breed: {breed}\n"
     prompt += f"2. Age: {age}\n"
-    description = dBreed[0]["breeds"][0]["description"]
+    description = breed_info["description"]
+    #dBreed[0]["breeds"][0]["description"]
     prompt += f"3. Short description: {description}\n"
-    temperament = dBreed[0]["breeds"][0]["temperament"]
+    temperament = breed_info["description"]["temperament"]
     prompt += f"4. Temperament: {temperament}\n" #take info and put them in the base prompt
     
     prompt += "Based on the above description and further research, "
@@ -113,6 +114,18 @@ if breed:
         imgBr = dBreed[0]["url"]
         st.image(imgBr) #display a random image featuring the breed
         #///DONE image
+    if len(dBreed) == 0 or len(dBreed[0]["breeds"]) == 0:
+        st.error("The API did not return breed information. Please try again.")
+        st.stop()
+
+    for cat in data:
+        if cat["id"] == breedId:
+            breed_info = cat
+            break
+
+    #container1.write(f"🐈 **DEBUG BREED**: {breed_info}")
+    #st.write(breed_info.keys())
+    weightBr = breed_info["weight"]
 
     generating()
 
