@@ -19,29 +19,17 @@ secret_key = st.secrets.get("genaikey", "")
 # 2. Display debug information without exposing the secret
 st.write("### Secrets Check")
 if secret_key:
-    # Check length and format without revealing full string
-    prefix = secret_key[:4] if len(secret_key) >= 4 else secret_key
-    st.success(f"Key loaded! Prefix: `{prefix}...` (Length: {len(secret_key)})")
-else:
-    st.error("❌ `GEMINI_API_KEY` was NOT found in `st.secrets`!")
-    st.info("Ensure you saved `GEMINI_API_KEY = 'YOUR_KEY'` under 'Secrets' in the Streamlit Cloud Dashboard.")
-    st.stop()
-
-# 3. Test API Call
-st.write("### API Test")
-if st.button("Test Gemini Connection"):
-    try:
-        # Pass key explicitly to client
-        client = genai.Client(api_key=secret_key)
-        
-        response = client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents="Say 'Hello World'!"
-        )
-        st.success("✅ Success! Gemini response:")
-        st.write(response.text)
-    except Exception as e:
-        st.error(f"❌ API Call Failed: {e}")
+    if st.button("Test Gemini Connection"):
+        try:
+            # Old library setup
+            genai.configure(api_key=secret_key)
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            
+            response = model.generate_content("Say 'Hello World'!")
+            st.success("✅ Success! Gemini response:")
+            st.write(response.text)
+        except Exception as e:
+            st.error(f"❌ API Call Failed: {e}")
 #-----------
 
 st.title("🐈‍⬛ Life with a Cat!")
