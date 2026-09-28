@@ -18,7 +18,7 @@ client = genai.Client(api_key=genaikey) #grabs the request from the google genai
 baseUrl = "https://api.thecatapi.com/v1/"
 endpoint = baseUrl + "breeds/"
 headers = {
-    "x-api-key": "live_F5fS1iIYr4ORocJCtCbnREOgOn9zMvbC6Hv2aCvdzuJFBA8Q9rC7L8rA1FzBBcmO"
+    "x-api-key": "live_KhZWwsWpzMKVhMj6gxOACpxmAdYHL3v3A8Db4NhaTGkI4Kezv6UOnMQqnSqf8gvq"
 }
 
 #safely grabs data preventing crashing
