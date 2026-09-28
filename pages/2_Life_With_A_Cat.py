@@ -107,13 +107,12 @@ if breed:
     endpBreed = baseUrl + "images/search/?breed_ids=" + breedId
     rBreed = requests.get(endpBreed, headers=headers)
     dBreed = rBreed.json()
-    st.write(dBreed)
     #//dBreed is a list containing one dict with keys
     #//such as breeds, id, url, width, and height
-
-    imgBr = dBreed[0]["url"]
-    st.image(imgBr) #display a random image featuring the breed
-    #///DONE image
+    if dBreed != []: 
+        imgBr = dBreed[0]["url"]
+        st.image(imgBr) #display a random image featuring the breed
+        #///DONE image
 
     generating()
 
